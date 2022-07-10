@@ -1,4 +1,9 @@
-import { SET_LOADING, SET_STORIES, REMOVE_STORY } from "./actions";
+import {
+	SET_LOADING,
+	SET_STORIES,
+	REMOVE_STORY,
+	HANDLE_SEARCH,
+} from "./actions";
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -17,6 +22,12 @@ const reducer = (state, action) => {
 				hits: state.hits.filter(
 					(story) => story.objectID !== action.payload
 				),
+			};
+		case HANDLE_SEARCH:
+			return {
+				...state,
+				query: action.payload,
+				page: 0,
 			};
 		default:
 			throw new Error(`No matching "${action.type}" action type!`);

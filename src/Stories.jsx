@@ -92,7 +92,7 @@ const Title = styled.h4`
 `;
 
 const Info = styled.p`
-	color: var(--color-font-primary);
+	color: var(--color-font-secondary);
 	margin-bottom: 0.3rem;
 `;
 
