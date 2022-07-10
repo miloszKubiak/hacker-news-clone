@@ -79,7 +79,7 @@ const AllStories = styled.section`
 const SingleStory = styled.article`
 	padding: 1rem 2rem;
 	background: var(--color-white);
-	border: 0.2rem solid #333;
+	border: 0.2rem solid var(--color-font-secondary);
 	border-radius: var(--radius);
 	display: flex;
 	flex-direction: column;
