@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useGlobalContext } from "./context";
 
 const Stories = () => {
-	const { isLoading, hits } = useGlobalContext();
+	const { isLoading, hits, removeStory } = useGlobalContext();
 
 	if (isLoading) {
 		return (
@@ -20,18 +20,18 @@ const Stories = () => {
 					story;
 				return (
 					<SingleStory key={objectID}>
-						<div>
-							<Title>{title}</Title>
-							<Info>
-								{points} points by <span>{author} | </span>
-								{num_comments} comments
-							</Info>
-						</div>
+						<Title>{title}</Title>
+						<Info>
+							{points} points by <span>{author} | </span>
+							{num_comments} comments
+						</Info>
 						<Links>
 							<ReadMore href={url} target="_blank">
 								read more
 							</ReadMore>
-							<RemoveBtn>remove</RemoveBtn>
+							<RemoveBtn onClick={() => removeStory(objectID)}>
+								remove
+							</RemoveBtn>
 						</Links>
 					</SingleStory>
 				);
@@ -67,7 +67,7 @@ const AllStories = styled.section`
 	display: grid;
 	gap: 2rem;
 	width: 90vw;
-	max-width: var(--fixed-width);
+	max-width: var(--max-width);
 	margin: 0 auto;
 	margin-bottom: 4rem;
 
